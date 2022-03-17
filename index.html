@@ -1,0 +1,914 @@
+<!-- PC區塊_主視覺開始 -->
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta property="og:image" content="http://img.udn.com/art/20190201_mk_SP_02/images/1200x628.jpg">
+<meta charset="UTF-8" />
+
+
+<div id='content'>
+	<!-- 飄花 -->
+	<div id="snowflake"></div>
+</div>
+
+
+
+<script src='https://code.jquery.com/jquery-1.11.2.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js'></script>
+
+
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		-webkit-text-size-adjust: none;
+		list-style: none;
+		outline: none;
+	}
+
+	img {
+		border: 0;
+	}
+
+	html,
+	body {
+		min-width: 0;
+		/* 必寫!!!*/
+		height: auto;
+		background-image: url(images/index_BG.jpg);
+		/* 滿版主視覺背景 */
+		background-repeat: no-repeat;
+		background-position: center top;
+		/* background-position: center 182px; */
+		/* 套HEADER時需要打開 */
+	}
+
+	.vspc {
+		width: 1190px;
+		height: auto;
+		margin: 0 auto;
+		position: relative;
+	}
+
+	.vspc img {
+		display: block;
+	}
+
+
+
+
+
+	.udnLOGO {
+		display: block;
+		z-index: 700;
+		position: absolute;
+		width: calc(139/1190*100%);
+		/* 更改數值 調整logo大小 */
+		left: calc(40/1190*100%);
+		top: calc(10/1190*100%);
+	}
+
+	.udnLOGO span {
+		display: block;
+		width: 100%;
+		height: 0;
+		background-size: 100% auto;
+		padding-bottom: calc(293/797*100%);
+		/* 更改數值 調整logo整體高度*/
+		/* padding-bottom: calc(360/797*100%); */
+		/* 用第4/5 底色_logo 打開開素質 */
+		/* 更換需要的logo路徑 2018舊版 or 2019-新版  */
+		background-image: url(http://img.udn.com/art/2019_logo/images/new_udnlogo_02.svg);
+	}
+
+
+	.vspc .bigbang-LINE {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 100px;
+		z-index: 700;
+	}
+
+	.vspc .bigbang-LINE img {
+		width: 80%;
+	}
+
+	.vspc .bigbang-FB {
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 50px;
+		z-index: 700;
+	}
+
+	.vspc .bigbang-FB img {
+		width: 80%;
+	}
+
+	.vspc .member01 {
+		position: absolute;
+		top: 760px;
+		left: 90px;
+		z-index: 100;
+	}
+
+
+	.vspc .PUSH01 {
+		position: absolute;
+		top: 380px;
+		right: 720px;
+		z-index: 100;
+		animation: PUSH01 2s infinite;
+	}
+
+
+
+
+	.vspc .main .info {
+		display: block;
+		position: absolute;
+		top: 280px;
+		left: 55px;
+		animation: swing 4s 1s infinite;
+
+	}
+
+	@keyframes swing {
+		20% {
+			-webkit-transform: rotate3d(0, 0, 1, 5deg);
+			transform: rotate3d(0, 0, 1, 5deg);
+		}
+
+		40% {
+			-webkit-transform: rotate3d(0, 0, 1, -5deg);
+			transform: rotate3d(0, 0, 1, -5deg);
+		}
+
+		60% {
+			-webkit-transform: rotate3d(0, 0, 1, 5deg);
+			transform: rotate3d(0, 0, 1, 5deg);
+		}
+
+		80% {
+			-webkit-transform: rotate3d(0, 0, 1, -5deg);
+			transform: rotate3d(0, 0, 1, -5deg);
+		}
+
+		to {
+			-webkit-transform: rotate3d(0, 0, 0, 0deg);
+			transform: rotate3d(0, 0, 0, 0deg);
+		}
+	}
+
+
+
+
+
+
+	.vspc .main .infoo {
+		display: block;
+		position: absolute;
+		top: 150px;
+		left: 880px;
+		animation: swing 4s 2s infinite;
+
+	}
+
+	@keyframes swing {
+		10% {
+			-webkit-transform: rotate3d(-4, -2, 0, 2deg);
+			transform: rotate3d(-4, -2, 0, 2deg);
+		}
+
+		30% {
+			-webkit-transform: rotate3d(0, 0, 5, -5deg);
+			transform: rotate3d(0, 0, 5, -5deg);
+		}
+
+		50% {
+			-webkit-transform: rotate3d(0, 0, 1, 5deg);
+			transform: rotate3d(0, 0, 1, 5deg);
+		}
+
+		70% {
+			-webkit-transform: rotate3d(0, 0, 1, -5deg);
+			transform: rotate3d(0, 0, 1, -5deg);
+		}
+
+		to {
+			-webkit-transform: rotate3d(0, 0, 0, 0deg);
+			transform: rotate3d(0, 0, 0, 0deg);
+		}
+	}
+
+
+
+
+
+
+	@keyframes PUSH01 {
+		0% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(0px);
+		}
+		100% {
+			transform: translateY(10px);
+		}
+	}
+
+
+
+
+
+
+	@media screen and (max-width: 640px) {
+		.vspc {
+			display: none;
+		}
+
+	}
+
+
+
+	.vspc .main {
+		width: 1190px;
+		/* height: 3550px; */
+		margin: 0 auto;
+		position: relative;
+
+	}
+
+
+
+	.vspc .main .main_title_T1 {
+		display: block;
+		width: 665px;
+		height: 420px;
+		background-image: url(images/word.png);
+		position: absolute;
+		top: 20px;
+		left: 298px;
+		/* animation: decoration .4s .2s both; */
+	}
+
+
+	@keyframes decoration {
+		0% {
+			-webkit-transform: scale(0);
+			-moz-transform: scale(0);
+			-ms-transform: scale(0);
+			-o-transform: scale(0);
+			transform: scale(0);
+			opacity: 0;
+		}
+		10% {
+			-webkit-transform: scale(3);
+			-moz-transform: scale(3);
+			-ms-transform: scale(3);
+			-o-transform: scale(3);
+			transform: scale(3);
+			opacity: 1;
+		}
+		50% {
+			-webkit-transform: scale(.8);
+			-moz-transform: scale(.8);
+			-ms-transform: scale(.8);
+			-o-transform: scale(.8);
+			transform: scale(.8);
+			opacity: 1;
+		}
+		100% {
+			-webkit-transform: scale(1);
+			-moz-transform: scale(1);
+			-ms-transform: scale(1);
+			-o-transform: scale(1);
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+
+
+
+	.vspc .bicycle {
+		position: absolute;
+		top: 240px;
+		right: -5px;
+		z-index: 100;
+	}
+
+
+
+
+.tossing{
+	position: absolute;
+	top: 82px;
+	right: 70px;
+	animation-name: tossing;
+	-webkit-animation-name: tossing;	
+
+	animation-duration: 2.5s;	
+	-webkit-animation-duration: 4s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+
+@keyframes tossing {
+	0% {
+		transform: rotate(-4deg);	
+	}
+	50% {
+		transform: rotate(4deg);
+	}
+	100% {
+		transform: rotate(-4deg);	
+	}						
+}
+
+@-webkit-keyframes tossing {
+	0% {
+		-webkit-transform: rotate(-4deg);	
+	}
+	50% {
+		-webkit-transform: rotate(4deg);
+	}
+	100% {
+		-webkit-transform: rotate(-4deg);	
+	}				
+}
+
+
+
+
+
+
+
+
+
+
+	.bigEntrance {
+		display: block;
+		position: absolute;
+		/* width: 200%; */
+		left: 270px;
+		top: 0px;
+		z-index: 0;
+		animation-name: bigEntrance;
+		-webkit-animation-name: bigEntrance;
+
+		animation-duration: 1.6s;
+		-webkit-animation-duration: 1.6s;
+
+		animation-timing-function: ease-out;
+		-webkit-animation-timing-function: ease-out;
+
+		visibility: visible !important;
+	}
+
+
+
+	@kesyframe bigEntrance {
+		0% {
+			transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+			opacity: 0.2;
+		}
+		30% {
+			transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
+			opacity: 1;
+		}
+		45% {
+			transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		60% {
+			transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		75% {
+			transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		90% {
+			transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		100% {
+			transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes bigEntrance {
+		0% {
+			-webkit-transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%);
+			opacity: 0.2;
+		}
+		30% {
+			-webkit-transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%);
+			opacity: 1;
+		}
+		45% {
+			-webkit-transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		60% {
+			-webkit-transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		75% {
+			-webkit-transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		90% {
+			-webkit-transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+		100% {
+			-webkit-transform: scale(1) rotate(0deg) translateX(0%) translateY(0%);
+			opacity: 1;
+		}
+	}
+</style>
+<script src="http://img.udn.com/art/js_temp/eplogo.js"></script>
+
+
+
+</head>
+
+<body>
+	<div class="vspc">
+		<div class="main">
+
+
+
+			<!-- LOGO -->
+			<a href="https://shopping.udn.com/mall/Cc1a00.do" target="_blank" class="udnLOGO">
+				<span></span>
+			</a>
+			<!-- LOGO -->
+
+
+			<!-- <div class="bigEntrance">
+				<img src="images/word.png">
+			</div> -->
+
+
+			<img src="images/index_02-1.jpg" style="display:block;" border="0" hidefocus="true">
+
+
+			<div class="bicycle">
+				<img src="images/bicycle.png" style="display:block;" border="0" hidefocus="true">
+			</div>
+
+
+			<div class="tossing">
+					<a href="https://shopping.udn.com/mall/cus/meb/Cc1m01.do"target="_blank">
+					<img src="images/LOVE.png" style="display:block;" border="0" hidefocus="true"></a>
+				</div>
+	
+
+
+
+			<div class="main_title_T1"></div>
+
+
+
+
+			<img src="images/index_05.jpg" usemap="#Map" style="display:block;" border="0"
+			 hidefocus="true">
+			<map name="Map">
+				<area shape="rect" coords="40,27,573,523" href="https://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=201912313nFDL5Ulsee">
+				<area shape="rect" coords="626,27,1140,336" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=2029040112HgxCurT7O">
+				<area shape="rect" coords="628,352,1137,497" href="https://shopping.udn.com/mall/cus/event/eventPage.do?header=false&UrlRefXuid=2999123135ywIiSuQZD7">
+			</map>
+
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 27255f737a51b2c6fdbb6176c31be55a00f03e37
+
+
+		</div>
+	</div>
+
+
+
+
+	<!-- PC區塊_主視覺結束 -->
+
+
+
+
+	<!-- MOBILE區塊_主視覺開始 -->
+
+	<style>
+		.vsmobile {
+			max-width: 640px;
+			margin: 0 auto;
+			display: none;
+		}
+
+		.vsmobile img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		@media screen and (max-width: 640px) {
+			.vsmobile {
+				display: block;
+			}
+		}
+
+		.vsmobile .udnLOGO {
+			z-index: 700;
+			position: absolute;
+			width: calc(170/640*100%);
+			/* 更改數值 調整logo大小 */
+			left: calc(15/640*100%);
+			top: calc(1/640*100%);
+		}
+
+		.vsmobile .udnLOGO span {
+			padding-bottom: calc(295/797*100%);
+			/* 更改數值 調整logo整體高度*/
+			/* padding-bottom: calc(362/797*100%); */
+			/* 用第4/5 底色_logo 打開開素質 */
+			/* 更換需要的logo路徑 2018舊版 or 2019-新版  */
+			background-image: url(http://img.udn.com/art/2019_logo/images/new_udnlogo_02.svg);
+		}
+
+
+
+		.Footer01 {
+			display: block;
+			position: relative;
+			max-width: 640px;
+			margin: 0;
+		}
+
+
+
+		.indexxx01 {
+			display: block;
+			position: relative;
+			max-width: 640px;
+			margin: 0;
+		}
+
+		.vsmobile .fooooott01 {
+			display: block;
+			position: absolute;
+			top: 0px;
+			margin: 0 auto;
+		}
+
+		.vsmobile .bigbang-LINE {
+			display: block;
+			position: relative;
+			float: right;
+			width: 50%;
+			top: 3%;
+			z-index: 100;
+		}
+
+
+
+		.vsmobile .bigbang-FB {
+			display: block;
+			position: relative;
+			float: left;
+			width: 50%;
+			top: 3%;
+			z-index: 100;
+		}
+
+
+
+
+
+
+		.vsmobile .main .info {
+			display: block;
+			position: absolute;
+			width: 33.5%;
+			bottom: 73.5%;
+			left: -2%;
+			z-index: 98;
+			animation: swing 5s 1s infinite;
+
+		}
+
+		@keyframes swing {
+			20% {
+				-webkit-transform: rotate3d(0, 0, 1, 5deg);
+				transform: rotate3d(0, 0, 1, 5deg);
+			}
+
+			40% {
+				-webkit-transform: rotate3d(0, 0, 1, -5deg);
+				transform: rotate3d(0, 0, 1, -5deg);
+			}
+
+			60% {
+				-webkit-transform: rotate3d(0, 0, 1, 5deg);
+				transform: rotate3d(0, 0, 1, 5deg);
+			}
+
+			80% {
+				-webkit-transform: rotate3d(0, 0, 1, -5deg);
+				transform: rotate3d(0, 0, 1, -5deg);
+			}
+
+			to {
+				-webkit-transform: rotate3d(0, 0, 0, 0deg);
+				transform: rotate3d(0, 0, 0, 0deg);
+			}
+		}
+
+
+
+
+
+
+
+
+
+		.vsmobile .main .infoo {
+			display: block;
+			position: absolute;
+			width: 31.2%;
+			bottom: 71.3%;
+			left: 59.3%;
+			z-index: 100;
+			animation: swing 4s 2s infinite;
+
+		}
+
+		@keyframes swing {
+			10% {
+				-webkit-transform: rotate3d(0, 0, 1, 4deg);
+				transform: rotate3d(0, 0, 1, 4deg);
+			}
+
+			30% {
+				-webkit-transform: rotate3d(0, 0, 1, -4deg);
+				transform: rotate3d(0, 0, 1, -4deg);
+			}
+
+			50% {
+				-webkit-transform: rotate3d(0, 0, 1, 4deg);
+				transform: rotate3d(0, 0, 1, 4deg);
+			}
+
+			70% {
+				-webkit-transform: rotate3d(0, 0, 1, -4deg);
+				transform: rotate3d(0, 0, 1, -4deg);
+			}
+
+			to {
+				-webkit-transform: rotate3d(0, 0, 0, 0deg);
+				transform: rotate3d(0, 0, 0, 0deg);
+			}
+		}
+
+
+
+
+
+
+
+		.vsmobile .PUSH01 {
+			display: block;
+			position: absolute;
+			width: 30%;
+			bottom: 72%;
+			left: 33%;
+			z-index: 100;
+			animation: PUSH01 1s infinite;
+		}
+
+		@keyframes PUSH01 {
+			0% {
+				transform: translateY(-2%);
+			}
+			50% {
+				transform: translateY(0px);
+			}
+			100% {
+				transform: translateY(-2%);
+			}
+		}
+	</style>
+
+<script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script> 
+<script>
+		$(function(){
+			$('img[usemap]').rwdImageMaps();
+		});
+	</script>
+
+	
+	<div class="vsmobile">
+		<div class="main">
+
+
+
+			<!-- LOGO -->
+			<a href="https://shopping.udn.com/mall/Cc1a00.do" target="_blank" class="udnLOGO">
+				<span></span>
+			</a>
+			<!-- LOGO -->
+
+
+
+			<div class="indexxx01">
+				<img src="images/640_01.jpg" usemap="#Map4" style="display:block;" border="0" hidefocus="true">
+                <map name="Map4">
+                  <area shape="rect" coords="210,364,340,505" href="https://shopping.udn.com/mall/cus/meb/Cc1m01.do">
+                </map>
+
+
+				<!-- <div class="info">
+					<img src="http://img.udn.com/art/20190201_mk_SP_02/images/m1.png">
+				</div> -->
+				<!-- <div class="infoo">
+					<img src="http://img.udn.com/art/20190201_mk_SP_02/images/m5.png">
+				</div> -->
+
+
+
+				<img src="images/640_02.jpg" usemap="#Map2" style="display:block;" border="0" hidefocus="true">
+				<map name="Map2">
+					<area shape="rect" coords="28,39,613,579" href="https://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=201912313nFDL5Ulsee">
+				</map>
+				<img src="images/640_03.jpg" usemap="#Map3" style="display:block;" border="0"
+				 hidefocus="true">
+				<map name="Map3">
+					<area shape="rect" coords="29,41,611,380" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=2029040112HgxCurT7O">
+				  <area shape="rect" coords="41,397,616,576" href="https://shopping.udn.com/mall/cus/event/eventPage.do?header=false&UrlRefXuid=2999123135ywIiSuQZD7">
+                </map>
+
+
+				<!-- <div class="PUSH01">
+					<a href="https://shopping.udn.com/mall/cus/meb/Cc1m01.do">
+						<img src="http://img.udn.com/art/20190201_mk_SP_02/images/m3.png">
+					</a>
+				</div> -->
+
+
+
+
+				<div class="Footer01">
+					<img src="images/640_04.jpg" style="display:block;" border="0" hidefocus="true">
+					<div class="fooooott01">
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+		<!-- MOBILE區塊_主視覺結束 -->
+
+
+
+
+
+
+
+<!-- PC區塊_側欄開始 -->
+<style>
+
+		.sbar *{
+			margin: 0;
+			padding: 0;
+			-webkit-text-size-adjust: none;
+			list-style: none;
+		}
+	
+	
+		.sbar {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			font-family: "Century Gothic", "Microsoft JhengHei", 'Microsoft JhengHei UI Regular', '微軟正黑體 Light', '微軟正黑體', sans-serif;
+			text-align: center;
+			position: fixed;
+			z-index: 999;
+			overflow: hidden;
+			width: 160px;
+			/* PC區塊側欄_寬，依圖寬填入 */
+			height: 500px;
+			/* PC區塊側欄_高,依圖高填入 */
+			top: 70px;
+			/* PC區塊側欄_離上方距離 */
+			left: 0px;
+			/* PC區塊側欄_離右方距離 */
+			transition: all .3s;
+			/* top: 150px; */
+			/* 套HEADER時需要打開 */
+		}
+	
+		.sbar>ul {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+	
+		.sbar>ul>li {
+			display: block;
+			position: absolute;
+		}
+	
+		.sbar>ul>li:nth-child(2) {
+			display: block;
+			position: absolute;
+			margin-left: 130px;
+		}
+	
+		.sbar>ul>li.sleft {
+			width: 100%;
+			height: 100%;
+			/* background: red; */
+		}
+	
+		.sbar>ul>li.sright {
+			width: 30px;
+			height: 100%;
+			cursor: pointer;
+			background: url(https://img.udn.com/art/20190401_mk_SP_01/images/pc_left_bar.png) right top no-repeat;
+			/* background: rgb(68, 8, 231); */
+		}
+	
+		.sbarleft {
+			left: -130px;
+		}
+	
+		.sbartop {
+			top: 70px;
+		}
+	
+		@media screen and (max-width: 640px) {
+			.sbar {
+				display: none;
+			}
+		}
+	</style>
+	<!-- <script>
+		$(function () {
+			var WW = $(window).width();
+			if (WW < 1510) {
+				$(".sbar").addClass("sbarleft");
+			} else {
+				$(".sbar").removeClass("sbarleft");
+			}
+			$(".sright").click(function () {
+				$(".sbar").toggleClass('sbarleft');;
+			});
+			$(window).resize(function () {
+				var WW = $(window).width();
+				if (WW < 1510) {
+					$(".sbar").addClass("sbarleft");
+				} else {
+					$(".sbar").removeClass("sbarleft");
+				}
+			});
+			$(window).scroll(function () {
+				var HH = $(window).scrollTop();
+				if (HH > 80) {
+					$(".sbar").addClass("sbartop");
+				} else {
+					$(".sbar").removeClass("sbartop");
+				}
+			});
+			$("#backtop").click(function () {
+				// $(window).scrollTop(0);
+				$("html,body").animate({
+					scrollTop: 0
+				}, 800);
+			});
+		});
+	</script> -->
+	<!-- <div class="sbar">
+		<ul>
+			<li class="sleft"><img src="https://img.udn.com/art/20190401_mk_SP_01/images/pc_left_bar.png" alt="" usemap="#Map111">
+				<map name="Map111">
+				  <area shape="rect" coords="4,407,122,442" href="javascript:void(0)" id="backtop">
+				  <area shape="circle" coords="64,140,62" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=false&UrlRefXuid=202810151Cc9OjEo1hC">
+				  <area shape="rect" coords="5,204,126,240" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=false&UrlRefXuid=202810151Cc9OjEo1hC">
+				  <area shape="rect" coords="6,247,125,280" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=2500100149NfZDZbKpOi" target="_blank">
+				  <area shape="rect" coords="4,288,124,322" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=220204013AFBQD4ODUx" target="_blank">
+				  <area shape="rect" coords="4,326,127,362" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=false&UrlRefXuid=201802012nLAxoOUwjB" target="_blank">
+				  <area shape="rect" coords="4,367,128,402" href="http://shopping.udn.com/mall/cus/event/eventPage.do?header=true&UrlRefXuid=288808082rdbe7RicAb" target="_blank">
+				</map>
+			</li>
+			<li class="sright"></li>
+		</ul>
+	</div> -->
+	<!-- PC區塊_側欄結束 -->
